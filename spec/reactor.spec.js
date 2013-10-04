@@ -1,9 +1,9 @@
-describe("Reactive", function(){
+describe("Reactor", function(){
 	describe("A simple reactive value", function(){
 		var reactive
 
 		beforeEach(function(){
-			reactive = new Reactive(0)
+			reactive = new Reactor(0)
 		})
 
 		it("returns its current value", function(){
@@ -88,11 +88,11 @@ describe("Reactive", function(){
 		  , reactive
 
 		beforeEach(function(){
-			r1 = new Reactive(1)
-			r2 = new Reactive(10)
-			r3 = new Reactive(-10)
+			r1 = new Reactor(1)
+			r2 = new Reactor(10)
+			r3 = new Reactor(-10)
 
-			reactive = new Reactive(function(){
+			reactive = new Reactor(function(){
 				if(r1.get() > 0){
 					return r2.get()
 				} else {
@@ -142,10 +142,10 @@ describe("Reactive", function(){
 		beforeEach(function(){
 			array = []
 			for(var i=0; i<10; i++){
-				array.push(new Reactive(i))
+				array.push(new Reactor(i))
 			}
 
-			rSum = new Reactive(function(){
+			rSum = new Reactor(function(){
 				var sum = 0
 				for(var i=0, len=array.length; i<len; i++){
 					sum += array[i].get()
@@ -153,7 +153,7 @@ describe("Reactive", function(){
 				return sum
 			})
 
-			rAverage = new Reactive(function(){
+			rAverage = new Reactor(function(){
 				return rSum.get() / array.length
 			})
 		})
