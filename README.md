@@ -17,13 +17,13 @@
 
 ## API
 
-### Reactor(_value\_or\_function_)
+### Reactor(*value_or_function*)
 
 Creates a new reactor object.
 
-If _value\_or\_function_ is an object, the reactor's initial value is set to the object.
+If *value_or_function* is an object, the reactor's initial value is set to the object.
 
-If _value\_or\_function_ is a function, the function is evaluated, and the reactor's value is set to the result of that function. If any other reactors are used to compute the function, then reactor will track them as dependencies, and recompute itself any time those reactors change.
+If *value_or_function* is a function, the function is evaluated, and the reactor's value is set to the result of that function. If any other reactors are used to compute the function, then reactor will track them as dependencies, and recompute itself any time those reactors change.
 
     var a = new Reactor(1),
         b = new Reactor(2),
@@ -75,7 +75,7 @@ Removes _callback_ as a subscriber to this reactor.
 
 *Alias: reactor.off*
 
-### reactor.clearSubscribers
+### reactor.clearSubscribers()
 
 Removes all subscribers from this reactor.
 
