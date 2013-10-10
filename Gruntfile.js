@@ -10,16 +10,29 @@ module.exports = function(grunt) {
         { src: 'src/<%= pkg.name %>.js'
         , dest: 'build/<%= pkg.name %>.min.js'
         }
-      }
-    , jasmine:
-      { src: 'src/<%= pkg.name %>.js'
-      , options:
-        { specs: 'spec/*.spec.js'
-        , helpers: 'spec/helpers/*.js'
-        , vendor: 'public/*.js'
+      , backbone:
+        { src: 'src/backbone.<%= pkg.name %>.js'
+        , dest: 'build/backbone.<%= pkg.name %>.min.js'
         }
       }
-  });
+    , jasmine:
+      { core:
+        { src: 'src/<%= pkg.name %>.js'
+        , options:
+          { specs: 'spec/<%= pkg.name %>.spec.js'
+          , helpers: 'spec/helpers/*.js'
+          }
+        }
+      , backbone:
+        { src: 'src/*.js'
+        , options:
+          { specs: 'spec/backbone-<%= pkg.name %>.spec.js'
+          , helpers: 'spec/helpers/*.js'
+          , vendor: ['public/underscore-min.js', 'public/backbone-min.js']
+          }
+        }
+      }
+    });
 
   // Plugins
   grunt.loadNpmTasks('grunt-contrib-uglify');
