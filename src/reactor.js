@@ -82,9 +82,9 @@ window.Reactor =
 			}
 		}
 	};
-	proto.clearDependencies = function(update){
+	proto.clearDependencies = function(){
 		for(var i=0, len=this.dependencies.length; i<len; i++){
-			this.dependencies[i].off(update);
+			this.dependencies[i].off(this.update);
 		}
 		this.dependencies = [];
 	};
