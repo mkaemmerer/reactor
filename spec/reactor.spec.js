@@ -33,6 +33,14 @@ describe("Reactor", function(){
 				expect(subscriber).toHaveBeenCalledWith(10)
 			})
 
+			it("can call subscribers immediately", function(){
+				var subscriber = jasmine.createSpy("subscriber")
+
+				reactive.on(subscriber, true)
+
+				expect(subscriber).toHaveBeenCalledWith(0)
+			})
+
 			it("can remove subscribers", function(){
 				var subscriber = jasmine.createSpy("subscriber")
 

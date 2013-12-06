@@ -50,8 +50,9 @@ window.Reactor =
 
 	proto.update = function(){};
 
-	proto.addSubscriber = function(subscriber){
+	proto.addSubscriber = function(subscriber, first_time){
 		this.subscribers.push(subscriber);
+		if(first_time) subscriber(this.get());
 		return this;
 	};
 	proto.removeSubscriber = function(subscriber){
